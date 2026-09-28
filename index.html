@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Mood Index</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">✦ Our classroom, our feelings</p>
+      <div class="sky-buddy" aria-hidden="true">☁️</div>
+      <h1>Small check-in.<br><span>Big feelings welcome.</span></h1>
+      <p>Student Mood Index · A happy little space to say how you feel.</p>
+    </header>
+
+    <section class="card" aria-labelledby="check-in-title">
+      <h2 id="check-in-title">Hey there, how’s your day?</h2>
+      <p class="muted">Pop in your name and pick the face that feels like you.</p>
+      <form id="mood-form">
+        <label class="name-label" for="student-name">First, what’s your name?</label>
+        <input id="student-name" name="student-name" type="text" maxlength="60" placeholder="Your name" autocomplete="off" required>
+        <fieldset>
+          <legend>Your mood, from 1 to 5</legend>
+          <div class="mood-options">
+            <label class="mood-option"><input type="radio" name="mood" value="1" required><span class="mood-choice"><span class="mood-emoji" aria-hidden="true">😢</span><strong>Sad</strong><span class="score">1</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
+            <label class="mood-option"><input type="radio" name="mood" value="2"><span class="mood-choice"><span class="mood-emoji" aria-hidden="true">😣</span><strong>Bad</strong><span class="score">2</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
+            <label class="mood-option"><input type="radio" name="mood" value="3"><span class="mood-choice"><span class="mood-emoji" aria-hidden="true">😐</span><strong>Okay</strong><span class="score">3</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
+            <label class="mood-option"><input type="radio" name="mood" value="4"><span class="mood-choice"><span class="mood-emoji" aria-hidden="true">😎</span><strong>Cool</strong><span class="score">4</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
+            <label class="mood-option"><input type="radio" name="mood" value="5"><span class="mood-choice"><span class="mood-emoji" aria-hidden="true">😄</span><strong>Happy</strong><span class="score">5</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
+          </div>
+        </fieldset>
+        <button type="submit">Check me in →</button>
+        <div id="mood-animation" class="mood-animation" aria-hidden="true" hidden></div>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+      </form>
+      <p class="privacy-note">Names and moods stay in this browser and are visible to anyone using it. This classroom prototype doesn’t share check-ins across devices.</p>
+    </section>
+
+    <section class="card" aria-labelledby="results-title">
+      <h2 id="results-title">The classroom mood</h2>
+      <p class="muted">Different moods. One classroom. Everyone belongs.</p>
+      <div class="stats">
+        <div><span class="stat-label">Average mood</span><p><strong id="average">—</strong><span class="stat-unit"> / 5</span></p></div>
+        <div><span class="stat-label">Total responses</span><p><strong id="total">0</strong></p></div>
+      </div>
+      <h3>Mood breakdown</h3>
+      <p id="empty-state" class="muted">No responses yet. Your check-in can be the first.</p>
+      <ul id="breakdown" class="breakdown"></ul>
+    </section>
+    <section class="card" aria-labelledby="attendance-title">
+      <p class="eyebrow">✎ Roll call</p>
+      <h2 id="attendance-title">Look who checked in!</h2>
+      <p class="muted">Each submission is one check-in, including repeat names.</p>
+      <p id="attendance-empty" class="muted">Your classroom check-ins will appear here.</p>
+      <ul id="attendance" class="attendance"></ul>
+    </section>
+    <footer>One small check-in. Space for every feeling.</footer>
+    <noscript><p>Please enable JavaScript to submit a mood and see the results.</p></noscript>
+  </main>
+</body>
+</html>
