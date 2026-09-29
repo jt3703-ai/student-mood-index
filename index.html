@@ -10,52 +10,59 @@
 <body>
   <main>
     <header>
-      <p class="eyebrow">✦ Our classroom, our feelings</p>
-      <div class="sky-buddy" aria-hidden="true">☁️</div>
+      <p class="eyebrow">Your own little mood journal</p>
+      <div class="sky-buddy" aria-hidden="true"><svg viewBox="0 0 80 80" class="doodle" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 41C14 23 33 15 49 22S71 50 55 55 22 60 18 41ZM11 65q27 6 56-1M27 34q10-6 20 0"/></svg></div>
       <h1>Small check-in.<br><span>Big feelings welcome.</span></h1>
       <p>Student Mood Index · A happy little space to say how you feel.</p>
     </header>
 
     <section class="card" aria-labelledby="check-in-title">
       <h2 id="check-in-title">Hey there, how’s your day?</h2>
-      <p class="muted">Pop in your name and pick the face that feels like you.</p>
+      <p class="muted">Pop in your name and pick the doodle that feels like you.</p>
       <form id="mood-form">
         <label class="name-label" for="student-name">First, what’s your name?</label>
         <input id="student-name" name="student-name" type="text" maxlength="60" placeholder="Your name" autocomplete="off" required>
         <fieldset>
           <legend>Your mood, from 1 to 5</legend>
           <div class="mood-options">
-            <label class="mood-option"><input type="radio" name="mood" value="1" required><span class="mood-choice"><span class="mood-emoji" aria-hidden="true">😢</span><strong>Sad</strong><span class="score">1</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
-            <label class="mood-option"><input type="radio" name="mood" value="2"><span class="mood-choice"><span class="mood-emoji" aria-hidden="true">😣</span><strong>Bad</strong><span class="score">2</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
-            <label class="mood-option"><input type="radio" name="mood" value="3"><span class="mood-choice"><span class="mood-emoji" aria-hidden="true">😐</span><strong>Okay</strong><span class="score">3</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
-            <label class="mood-option"><input type="radio" name="mood" value="4"><span class="mood-choice"><span class="mood-emoji" aria-hidden="true">😎</span><strong>Cool</strong><span class="score">4</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
-            <label class="mood-option"><input type="radio" name="mood" value="5"><span class="mood-choice"><span class="mood-emoji" aria-hidden="true">😄</span><strong>Happy</strong><span class="score">5</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
+            <label class="mood-option"><input type="radio" name="mood" value="1" required><span class="mood-choice"><svg viewBox="0 0 80 80" class="doodle" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 47C6 43 13 27 25 29C27 10 49 11 55 27C72 21 80 43 65 47Z"/><g class="rain-lines"><path d="M25 56l-3 9m19-11-3 10m20-9-3 10"/></g></svg><strong>Sad</strong><span class="score">1</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
+            <label class="mood-option"><input type="radio" name="mood" value="2"><span class="mood-choice"><svg viewBox="0 0 80 80" class="doodle" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 40C8 17 47 12 57 29S34 64 20 48 29 17 48 24 69 51 48 57 11 47 29 35 65 33 64 49M9 22l-5-5m66 6 7-4M12 60l-5 5"/></svg><strong>Bad</strong><span class="score">2</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
+            <label class="mood-option"><input type="radio" name="mood" value="3"><span class="mood-choice"><svg viewBox="0 0 80 80" class="doodle" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 41C14 23 33 15 49 22S71 50 55 55 22 60 18 41ZM11 65q27 6 56-1M27 34q10-6 20 0"/></svg><strong>Okay</strong><span class="score">3</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
+            <label class="mood-option"><input type="radio" name="mood" value="4"><span class="mood-choice"><svg viewBox="0 0 80 80" class="doodle" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 29l25 2-3 18Q17 56 14 40ZM44 31l25-3-3 15Q56 55 46 46ZM37 35q4-5 8 0M12 30l-6-5m63 4 5-5M28 62q15 7 29-5"/></svg><strong>Cool</strong><span class="score">4</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
+            <label class="mood-option"><input type="radio" name="mood" value="5"><span class="mood-choice"><svg viewBox="0 0 80 80" class="doodle" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m40 14 8 18 20 2-15 14 4 20-17-10-18 10 4-21-14-13 20-2ZM12 11l3 8m48-7-4 7M5 49l8-2m55 10 8 4"/></svg><strong>Happy</strong><span class="score">5</span><span class="selected-mark" aria-hidden="true">✓</span></span></label>
           </div>
         </fieldset>
         <button type="submit">Check me in →</button>
         <div id="mood-animation" class="mood-animation" aria-hidden="true" hidden></div>
         <p id="message" class="message" role="status" aria-live="polite"></p>
       </form>
-      <p class="privacy-note">Names and moods stay in this browser and are visible to anyone using it. This classroom prototype doesn’t share check-ins across devices.</p>
+      <p class="privacy-note">Names and moods are saved in this browser for your check-in journal. History is matched by name, without a login: anyone who enters the same name can view it. Use “Finish my check-in” when you’re done.</p>
     </section>
 
-    <section class="card" aria-labelledby="results-title">
-      <h2 id="results-title">The classroom mood</h2>
-      <p class="muted">Different moods. One classroom. Everyone belongs.</p>
-      <div class="stats">
-        <div><span class="stat-label">Average mood</span><p><strong id="average">—</strong><span class="stat-unit"> / 5</span></p></div>
-        <div><span class="stat-label">Total responses</span><p><strong id="total">0</strong></p></div>
+    <section class="card" aria-labelledby="calendar-title">
+      <p class="eyebrow">One day at a time</p>
+      <h2 id="calendar-title">My Check-in Calendar</h2>
+      <p id="calendar-note" class="muted">Enter your name to see your checked-in days.</p>
+      <div id="calendar-content" hidden>
+        <div class="calendar-nav">
+          <button id="previous-month" type="button" aria-label="Previous month">←</button>
+          <h3 id="calendar-month" aria-live="polite"></h3>
+          <button id="next-month" type="button" aria-label="Next month">→</button>
+        </div>
+        <div class="calendar-weekdays" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+        <ol id="calendar-days" class="calendar-days" aria-label="Your check-in calendar"></ol>
+        <p class="calendar-key">Colored days show your latest mood that day. Blank days are simply days without a saved check-in.</p>
+        <p class="calendar-key">1 Sad · 2 Bad · 3 Okay · 4 Cool · 5 Happy</p>
       </div>
-      <h3>Mood breakdown</h3>
-      <p id="empty-state" class="muted">No responses yet. Your check-in can be the first.</p>
-      <ul id="breakdown" class="breakdown"></ul>
     </section>
-    <section class="card" aria-labelledby="attendance-title">
-      <p class="eyebrow">✎ Roll call</p>
-      <h2 id="attendance-title">Look who checked in!</h2>
-      <p class="muted">Each submission is one check-in, including repeat names.</p>
-      <p id="attendance-empty" class="muted">Your classroom check-ins will appear here.</p>
-      <ul id="attendance" class="attendance"></ul>
+    <section class="card" aria-labelledby="trend-title">
+      <p class="eyebrow">✦ Your little check-in journey</p>
+      <h2 id="trend-title">My Mood Trend</h2>
+      <p class="muted">Your latest 10 check-ins, from oldest to newest. Each dot is one check-in on the 1–5 mood scale.</p>
+      <p id="trend-summary" role="status">Enter your name above to see your mood history.</p>
+      <div id="trend-chart"></div>
+      <ol id="trend-records" class="trend-records" aria-label="Your recent check-ins"></ol>
+      <button id="finish" class="secondary-button" type="button">Finish my check-in</button>
     </section>
     <footer>One small check-in. Space for every feeling.</footer>
     <noscript><p>Please enable JavaScript to submit a mood and see the results.</p></noscript>

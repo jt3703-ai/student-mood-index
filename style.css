@@ -15,7 +15,7 @@ h2 { font-size: 1.5rem; line-height: 1.3; margin: 0 0 8px; }
 h3 { font-size: 1rem; margin: 24px 0 12px; }
 p { margin: 0 0 16px; }
 .eyebrow { color: #436c9f; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
-.muted, .stat-label, footer { color: #526c8a; }
+.muted, footer { color: #526c8a; }
 .card { padding: 30px; background: #fff; border: 2px solid #d0e3f8; border-radius: 28px; margin-bottom: 24px; box-shadow: 0 7px 0 #d5e6f5, 0 12px 24px #355e8d08; }
 .name-label { display: block; font-weight: 700; margin: 24px 0 8px; }
 #student-name { width: 100%; padding: 14px 16px; font: inherit; color: #233f68; background: #f5faff; border: 2px solid #c8ddf2; border-radius: 14px; }
@@ -30,7 +30,8 @@ legend { font-weight: 700; margin-bottom: 16px; }
 .mood-option:nth-child(3) .mood-choice { background: #edf9fa; }
 .mood-option:nth-child(4) .mood-choice { background: #eaf4ff; }
 .mood-option:nth-child(5) .mood-choice { background: #fff8e5; }
-.mood-emoji { font-size: 2.5rem; line-height: 1.5; }
+.doodle { width: 66px; height: 66px; color: #35669e; }
+.sky-buddy .doodle { width: 88px; height: 88px; }
 .mood-choice strong { font-size: 1rem; }
 .score { font-size: 0.8rem; color: #526c8a; }
 .selected-mark { display: none; position: absolute; top: -10px; right: -5px; width: 26px; height: 26px; border-radius: 50%; color: white; background: #2864b3; font-weight: 800; }
@@ -45,35 +46,43 @@ button:active { transform: translateY(2px); box-shadow: 0 2px 0 #255ba0; }
 .message:empty { display: none; }
 .message.error { color: #a12e2e; }
 .privacy-note { font-size: 0.8rem; color: #526c8a; margin: 24px 0 0; }
-.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
-.stats > div { padding: 20px; background: #edf5ff; border: 1px solid #d6e6f9; border-radius: 20px; }
-.stats > div:last-child { background: #f0f0ff; }
-.stats p { margin: 4px 0 0; line-height: 1.2; }
-.stats strong { font-size: 2.3rem; color: #285b97; }
-.stat-label { font-size: 0.85rem; }
-.stat-unit { color: #526c8a; }
-.breakdown, .attendance { list-style: none; margin: 0; padding: 0; }
-.breakdown li { margin-top: 14px; }
-.bar-label { display: flex; justify-content: space-between; gap: 12px; font-size: 0.9rem; margin-bottom: 5px; }
-.bar-track { height: 12px; border-radius: 10px; background: #edf3fa; overflow: hidden; }
-.bar-fill { height: 100%; background: #79abe7; border-radius: inherit; }
-.attendance { max-height: 360px; overflow-y: auto; }
-.attendance li { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 4px; border-bottom: 1px dashed #c8ddf2; }
-.student-name { font-weight: 700; overflow-wrap: anywhere; min-width: 0; }
-.mood-badge { flex-shrink: 0; background: #edf5ff; padding: 5px 12px; border-radius: 20px; font-size: 0.9rem; }
+.secondary-button { margin-top: 18px; background: #edf5ff; color: #285b97; box-shadow: none; }
+.secondary-button:hover { background: #dcecff; }
+#trend-summary { color: #285b97; font-weight: 700; }
+#trend-chart svg { display: block; width: 100%; height: auto; background: #f5faff; border-radius: 18px; }
+.trend-grid { stroke: #d0e3f8; stroke-width: 1; }
+.trend-label { fill: #526c8a; font-size: 14px; }
+.trend-line { fill: none; stroke: #3474c8; stroke-width: 3; stroke-linejoin: round; }
+.trend-dot { fill: #3474c8; stroke: white; stroke-width: 2; }
+.trend-records { color: #526c8a; font-size: 0.85rem; padding-left: 24px; }
+.trend-records:empty { display: none; }
+.trend-records li { padding: 4px 0; overflow-wrap: anywhere; }
 footer { text-align: center; font-size: 0.85rem; padding: 8px; }
 .mood-animation { height: 90px; position: relative; width: 180px; margin: 20px auto 0; text-align: center; }
 .mood-animation[hidden] { display: none; }
-.animation-face { display: inline-block; font-size: 48px; }
-.particle { position: absolute; left: var(--x); top: 18px; font-size: 22px; }
-.mood-animation.sad .animation-face { animation: float 1.1s ease-in-out 2; }
-.sad .particle { color: #4684cb; animation: rain 0.8s var(--delay) 3 both; }
-.bad .animation-face { animation: wobble 0.65s ease-in-out 3; }
-.okay .animation-face { animation: float 1.2s ease-in-out 2; }
-.cool .animation-face { animation: bounce 0.7s ease-in-out 3; }
-.happy .animation-face { animation: bounce 0.8s ease-in-out 3; }
-.happy .particle { animation: sparkle 1s var(--delay) 2 both; }
-@keyframes rain { from { transform: translateY(20px); opacity: 0; } 30% { opacity: 1; } to { transform: translateY(60px); opacity: 0; } }
+.animation-doodle { width: 84px; height: 84px; overflow: visible; }
+.sad .rain-lines { animation: rain 0.8s ease-in 3; }
+.bad .animation-doodle { animation: wobble 0.65s ease-in-out 3; }
+.okay .animation-doodle { animation: float 1.2s ease-in-out 2; }
+.cool .animation-doodle { animation: bounce 0.7s ease-in-out 3; }
+.happy .animation-doodle { animation: burst 0.9s ease-in-out 3; }
+@keyframes rain { from { transform: translateY(-3px); opacity: 0; } 30% { opacity: 1; } to { transform: translateY(10px); opacity: 0; } }
+@keyframes burst { 0%, 100% { transform: scale(0.85) rotate(-8deg); } 50% { transform: scale(1.1) rotate(8deg); } }
+.calendar-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 20px 0; }
+.calendar-nav button { width: 44px; padding: 6px; flex-shrink: 0; box-shadow: none; }
+.calendar-nav h3 { margin: 0; text-align: center; }
+.calendar-weekdays, .calendar-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; text-align: center; }
+.calendar-weekdays { font-size: 0.75rem; color: #526c8a; margin-bottom: 8px; }
+.calendar-days { list-style: none; padding: 0; margin: 0 0 16px; }
+.calendar-day { min-height: 66px; padding: 6px 2px; border-radius: 13px; border: 1px solid #dce8f5; background: #f7faff; display: flex; flex-direction: column; align-items: center; }
+.calendar-day.today { outline: 2px dashed #356cb6; outline-offset: -3px; }
+.day-mark { font-size: 0.65rem; font-weight: 800; border-bottom: 2px solid currentColor; }
+.calendar-day.mood-1 { background: #dce9fa; }
+.calendar-day.mood-2 { background: #e7e2f5; }
+.calendar-day.mood-3 { background: #dff1f1; }
+.calendar-day.mood-4 { background: #d2e9ff; }
+.calendar-day.mood-5 { background: #fff0c9; }
+.calendar-key { color: #526c8a; font-size: 0.8rem; margin-bottom: 8px; }
 @keyframes wobble { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-12deg) translateY(5px); } 75% { transform: rotate(10deg) translateY(5px); } }
 @keyframes float { 0%, 100% { transform: translateY(5px); } 50% { transform: translateY(-8px); } }
 @keyframes bounce { 0%, 100% { transform: translateY(5px) scale(1.05, 0.95); } 50% { transform: translateY(-15px) rotate(-8deg); } }
@@ -83,8 +92,8 @@ footer { text-align: center; font-size: 0.85rem; padding: 8px; }
   .card { padding: 22px 18px; }
   .mood-options { grid-template-columns: repeat(3, 1fr); gap: 14px 10px; }
   .mood-choice { min-height: 130px; }
-  .stats { gap: 10px; }
-  .stats > div { padding: 14px; }
+  .calendar-days, .calendar-weekdays { gap: 3px; }
+  .calendar-day { min-height: 56px; border-radius: 9px; font-size: 0.8rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
