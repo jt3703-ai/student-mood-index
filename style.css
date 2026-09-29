@@ -49,6 +49,7 @@ button:active { transform: translateY(2px); box-shadow: 0 2px 0 #255ba0; }
 .secondary-button { margin-top: 18px; background: #edf5ff; color: #285b97; box-shadow: none; }
 .secondary-button:hover { background: #dcecff; }
 #trend-summary { color: #285b97; font-weight: 700; }
+#trend-interpretation { margin-top: 14px; }
 #trend-chart svg { display: block; width: 100%; height: auto; background: #f5faff; border-radius: 18px; }
 .trend-grid { stroke: #d0e3f8; stroke-width: 1; }
 .trend-label { fill: #526c8a; font-size: 14px; }
@@ -74,8 +75,9 @@ footer { text-align: center; font-size: 0.85rem; padding: 8px; }
 .calendar-weekdays, .calendar-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; text-align: center; }
 .calendar-weekdays { font-size: 0.75rem; color: #526c8a; margin-bottom: 8px; }
 .calendar-days { list-style: none; padding: 0; margin: 0 0 16px; }
-.calendar-day { min-height: 66px; padding: 6px 2px; border-radius: 13px; border: 1px solid #dce8f5; background: #f7faff; display: flex; flex-direction: column; align-items: center; }
+.calendar-day { position: relative; min-height: 66px; padding: 6px 2px; border-radius: 13px; border: 1px solid #dce8f5; background: #f7faff; display: flex; flex-direction: column; align-items: center; }
 .calendar-day.today { outline: 2px dashed #356cb6; outline-offset: -3px; }
+.today-check { position: absolute; top: -6px; right: -3px; width: 21px; height: 21px; border: 2px solid #356cb6; border-radius: 45% 55% 48% 52%; background: #eaf5ff; color: #255ba0; font-size: 15px; font-weight: 800; line-height: 17px; transform: rotate(-12deg); }
 .day-mark { font-size: 0.65rem; font-weight: 800; border-bottom: 2px solid currentColor; }
 .calendar-day.mood-1 { background: #dce9fa; }
 .calendar-day.mood-2 { background: #e7e2f5; }

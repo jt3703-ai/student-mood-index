@@ -36,7 +36,7 @@
         <div id="mood-animation" class="mood-animation" aria-hidden="true" hidden></div>
         <p id="message" class="message" role="status" aria-live="polite"></p>
       </form>
-      <p class="privacy-note">Names and moods are saved in this browser for your check-in journal. History is matched by name, without a login: anyone who enters the same name can view it. Use “Finish my check-in” when you’re done.</p>
+      <p class="privacy-note">Your check-ins stay on this device and are only shown under your name.</p>
     </section>
 
     <section class="card" aria-labelledby="calendar-title">
@@ -61,6 +61,7 @@
       <p class="muted">Your latest 10 check-ins, from oldest to newest. Each dot is one check-in on the 1–5 mood scale.</p>
       <p id="trend-summary" role="status">Enter your name above to see your mood history.</p>
       <div id="trend-chart"></div>
+      <p id="trend-interpretation" class="muted" role="status" hidden></p>
       <ol id="trend-records" class="trend-records" aria-label="Your recent check-ins"></ol>
       <button id="finish" class="secondary-button" type="button">Finish my check-in</button>
     </section>

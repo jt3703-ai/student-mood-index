@@ -48,6 +48,9 @@ function renderTrend(responses) {
   const chart = document.querySelector("#trend-chart");
   const records = document.querySelector("#trend-records");
   const summary = document.querySelector("#trend-summary");
+  const interpretation = document.querySelector("#trend-interpretation");
+  interpretation.textContent = "";
+  interpretation.hidden = true;
   chart.replaceChildren();
   records.replaceChildren();
   const name = normalizeName(nameInput.value);
@@ -68,6 +71,14 @@ function renderTrend(responses) {
   summary.textContent = recent.length === 1
     ? "Your first dot! Check in again to start seeing a trend."
     : `${direction} · Latest score compared with the oldest shown: ${recent[0].score} → ${recent[recent.length - 1].score}. Feelings can change along the way.`;
+  if (recent.length > 1) {
+    interpretation.textContent = change > 0
+      ? "Your recent check-ins are trending upward."
+      : change < 0
+        ? "Your recent check-ins are trending downward."
+        : "Your latest mood is similar to your first recent check-in.";
+    interpretation.hidden = false;
+  }
 
   // A small SVG line chart needs no chart library.
   const svgNS = "http://www.w3.org/2000/svg";
@@ -156,6 +167,13 @@ function renderCalendar(responses) {
     if (key === today) { cell.classList.add("today"); label += ", today"; }
     if (record) {
       cell.classList.add(`mood-${record.score}`);
+      if (key === today) {
+        const check = document.createElement("span");
+        check.className = "today-check";
+        check.textContent = "✓";
+        check.setAttribute("aria-hidden", "true");
+        cell.append(check);
+      }
       const mark = document.createElement("span");
       mark.className = "day-mark";
       mark.textContent = `${record.score}/5`;
